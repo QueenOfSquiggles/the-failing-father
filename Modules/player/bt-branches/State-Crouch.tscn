@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/behaviour-tree/scripts/composite/BehaviourTreeSequence.cs" type="Script" id=1]
+[ext_resource path="res://addons/behaviour-tree/scripts/task/action/BehaviourTreeAction.cs" type="Script" id=2]
+[ext_resource path="res://addons/behaviour-tree/scripts/decorator/BehaviourTreeSucceeder.cs" type="Script" id=3]
+[ext_resource path="res://addons/behaviour-tree/scripts/decorator/BehaviourTreeCheckpoint.cs" type="Script" id=4]
+[ext_resource path="res://addons/behaviour-tree/scripts/task/query/BehaviourTreeQuery.cs" type="Script" id=5]
+
+[node name="State-Crouch" type="Node"]
+script = ExtResource( 4 )
+
+[node name="BT_Sequence" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="LoadStateData" type="Node" parent="BT_Sequence"]
+script = ExtResource( 3 )
+
+[node name="BT_Sequence" type="Node" parent="BT_Sequence/LoadStateData"]
+script = ExtResource( 1 )
+
+[node name="LoadInputData" type="Node" parent="BT_Sequence/LoadStateData/BT_Sequence"]
+script = ExtResource( 2 )
+
+[node name="StateQuery" type="Node" parent="BT_Sequence"]
+script = ExtResource( 1 )
+
+[node name="IsCrouching" type="Node" parent="BT_Sequence/StateQuery"]
+script = ExtResource( 5 )
+
+[node name="BT_Action" type="Node" parent="BT_Sequence"]
+script = ExtResource( 2 )

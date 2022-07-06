@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://addons/behaviour-tree/scripts/composite/BehaviourTreeSequence.cs" type="Script" id=1]
+[ext_resource path="res://addons/behaviour-tree/scripts/task/action/BehaviourTreeAction.cs" type="Script" id=2]
+[ext_resource path="res://addons/behaviour-tree/scripts/decorator/BehaviourTreeSucceeder.cs" type="Script" id=3]
+[ext_resource path="res://addons/behaviour-tree/scripts/decorator/BehaviourTreeCheckpoint.cs" type="Script" id=4]
+[ext_resource path="res://addons/behaviour-tree/scripts/task/query/BehaviourTreeQuery.cs" type="Script" id=5]
+[ext_resource path="res://addons/behaviour-tree/scripts/task/query/BehaviourTreeQueryInputAction.cs" type="Script" id=6]
+
+[node name="State-Aim" type="Node"]
+script = ExtResource( 4 )
+
+[node name="BT_Sequence" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="IsHoldingAimableItem" type="Node" parent="BT_Sequence"]
+script = ExtResource( 5 )
+
+[node name="IsAiming" type="Node" parent="BT_Sequence"]
+script = ExtResource( 6 )
+actionName = "aiming"
+saveName = "is-aiming"
+
+[node name="MoveAim" type="Node" parent="BT_Sequence"]
+script = ExtResource( 2 )
+
+[node name="ShootSubroutine" type="Node" parent="BT_Sequence"]
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": "This branch needs to always succeed so the player state can be locked in the aiming state without being forced to re-evaluate whenever the shoot action isn't pressed"
+}
+
+[node name="BT_Sequence" type="Node" parent="BT_Sequence/ShootSubroutine"]
+script = ExtResource( 1 )
+
+[node name="IsActionDownShoot" type="Node" parent="BT_Sequence/ShootSubroutine/BT_Sequence"]
+script = ExtResource( 6 )
+__meta__ = {
+"_editor_description_": "thinking maybe 'primary_fire' is good because it allows for adding a secondary fire without looking clunky"
+}
+actionName = "primary_fire"
+saveName = "is-aiming"
+
+[node name="PerformShoot" type="Node" parent="BT_Sequence/ShootSubroutine/BT_Sequence"]
+script = ExtResource( 2 )

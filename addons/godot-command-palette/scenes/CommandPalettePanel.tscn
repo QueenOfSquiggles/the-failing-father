@@ -1,0 +1,226 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://addons/godot-command-palette/scenes/icons/wrench.png" type="Texture" id=1]
+[ext_resource path="res://addons/godot-command-palette/scenes/icons/plus.png" type="Texture" id=2]
+[ext_resource path="res://addons/godot-command-palette/scenes/CommandPalettePanel.cs" type="Script" id=3]
+[ext_resource path="res://addons/godot-command-palette/scenes/icons/target.png" type="Texture" id=4]
+[ext_resource path="res://addons/godot-command-palette/scenes/icons/menuList.png" type="Texture" id=5]
+[ext_resource path="res://addons/godot-command-palette/scenes/Dialog_CreateEditorScript.cs" type="Script" id=6]
+[ext_resource path="res://addons/godot-command-palette/scenes/icons/save.png" type="Texture" id=7]
+[ext_resource path="res://addons/godot-command-palette/scenes/QuickRunner.cs" type="Script" id=8]
+
+[node name="CommandPalettePanel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+textureEditorScript = ExtResource( 4 )
+textureToolScript = ExtResource( 1 )
+textureMacro = ExtResource( 5 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+margin_right = 1010.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 64 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1003.0
+margin_bottom = 63.0
+
+[node name="BtnRegisterNew" type="Button" parent="PanelContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_right = 62.0
+margin_bottom = 56.0
+hint_tooltip = "Register new command"
+icon = ExtResource( 2 )
+
+[node name="BtnSave" type="Button" parent="PanelContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 66.0
+margin_right = 128.0
+margin_bottom = 56.0
+hint_tooltip = "Save registered commands"
+icon = ExtResource( 7 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 74.0
+margin_right = 1010.0
+margin_bottom = 586.0
+mouse_filter = 1
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="GroupCommands" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 1010.0
+margin_bottom = 512.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RegisterCommandMenu" type="PopupMenu" parent="."]
+margin_left = 14.0
+margin_top = 71.0
+margin_right = 384.0
+margin_bottom = 271.0
+items = [ "Editor Script Command", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Tool Script Command", ExtResource( 1 ), 0, false, false, 0, 0, null, "", false, "Macro Command", ExtResource( 5 ), 0, false, false, 0, 0, null, "", false ]
+allow_search = true
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 80.0
+margin_top = 94.0
+margin_right = 847.0
+margin_bottom = 503.0
+popup_exclusive = true
+window_title = "Open a File"
+mode = 0
+show_hidden_files = true
+
+[node name="Dialog_CreateEditorScript" type="WindowDialog" parent="."]
+margin_left = 299.0
+margin_top = 168.0
+margin_right = 693.0
+margin_bottom = 331.0
+window_title = "Create Command Link"
+script = ExtResource( 6 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialog_CreateEditorScript"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialog_CreateEditorScript/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 384.0
+margin_bottom = 153.0
+
+[node name="LabelFileRef" type="Label" parent="Dialog_CreateEditorScript/MarginContainer/VBoxContainer"]
+margin_right = 374.0
+margin_bottom = 14.0
+text = "File:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialog_CreateEditorScript/MarginContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 374.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="Label" type="Label" parent="Dialog_CreateEditorScript/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_top = 9.0
+margin_right = 185.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Command Name"
+align = 2
+
+[node name="LineName" type="LineEdit" parent="Dialog_CreateEditorScript/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 189.0
+margin_right = 374.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+placeholder_text = "Name"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Dialog_CreateEditorScript/MarginContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 374.0
+margin_bottom = 86.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="Label" type="Label" parent="Dialog_CreateEditorScript/MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_top = 9.0
+margin_right = 185.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Command Description"
+align = 2
+
+[node name="LineDescription" type="LineEdit" parent="Dialog_CreateEditorScript/MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 189.0
+margin_right = 374.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+placeholder_text = "Name"
+
+[node name="Control" type="Control" parent="Dialog_CreateEditorScript/MarginContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 374.0
+margin_bottom = 107.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Dialog_CreateEditorScript/MarginContainer/VBoxContainer"]
+margin_top = 111.0
+margin_right = 374.0
+margin_bottom = 143.0
+alignment = 1
+
+[node name="BtnCancel" type="Button" parent="Dialog_CreateEditorScript/MarginContainer/VBoxContainer/HBoxContainer4"]
+margin_right = 185.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="BtnAccept" type="Button" parent="Dialog_CreateEditorScript/MarginContainer/VBoxContainer/HBoxContainer4"]
+margin_left = 189.0
+margin_right = 374.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+text = "Accept"
+
+[node name="QuickRunner" type="WindowDialog" parent="."]
+visible = true
+margin_left = 211.0
+margin_top = 219.0
+margin_right = 693.0
+margin_bottom = 503.0
+window_title = "Quick Runner"
+resizable = true
+script = ExtResource( 8 )
+
+[node name="MarginContainer" type="MarginContainer" parent="QuickRunner"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuickRunner/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 472.0
+margin_bottom = 274.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Search" type="LineEdit" parent="QuickRunner/MarginContainer/VBoxContainer"]
+margin_right = 462.0
+margin_bottom = 24.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="QuickRunner/MarginContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 462.0
+margin_bottom = 264.0
+size_flags_vertical = 3
+
+[node name="Tree" type="Tree" parent="QuickRunner/MarginContainer/VBoxContainer/ScrollContainer"]
+margin_right = 462.0
+margin_bottom = 236.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+allow_reselect = true
+hide_root = true

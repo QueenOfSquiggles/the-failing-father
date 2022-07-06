@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/godot-command-palette/scenes/icons/up.png" type="Texture" id=1]
+[ext_resource path="res://addons/godot-command-palette/scenes/icons/trashcan.png" type="Texture" id=2]
+[ext_resource path="res://addons/godot-command-palette/scenes/icons/down.png" type="Texture" id=3]
+[ext_resource path="res://addons/godot-command-palette/scenes/CommandSlot.cs" type="Script" id=4]
+
+[node name="CommandSlot" type="HBoxContainer"]
+margin_right = 1010.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 32 )
+alignment = 1
+script = ExtResource( 4 )
+
+[node name="BtnRunCommand" type="Button" parent="."]
+margin_right = 748.0
+margin_bottom = 56.0
+hint_tooltip = "Run registered command"
+size_flags_horizontal = 3
+text = "Default Command Name"
+clip_text = true
+
+[node name="Control3" type="Control" parent="."]
+margin_left = 752.0
+margin_right = 759.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="BtnMoveUp" type="Button" parent="."]
+margin_left = 763.0
+margin_right = 838.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+hint_tooltip = "Move Command Down"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+icon = ExtResource( 1 )
+icon_align = 1
+
+[node name="BtnMoveDown" type="Button" parent="."]
+margin_left = 842.0
+margin_right = 917.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+hint_tooltip = "Move Command Up"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+icon = ExtResource( 3 )
+icon_align = 1
+
+[node name="BtnDelete" type="Button" parent="."]
+margin_left = 921.0
+margin_right = 995.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+hint_tooltip = "Delete Command"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+icon = ExtResource( 2 )
+icon_align = 1
+
+[node name="Control2" type="Control" parent="."]
+margin_left = 999.0
+margin_right = 1009.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 10, 0 )
