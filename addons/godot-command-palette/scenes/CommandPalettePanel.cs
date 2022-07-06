@@ -134,8 +134,6 @@ public class CommandPalettePanel : Control
     }
 
     private void RebuildList(){
-        // TODO rebuild list of commands
-
         foreach( Node child in commandsListRoot.GetChildren()){
             child.QueueFree();
         }

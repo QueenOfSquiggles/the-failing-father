@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://addons/behaviour-tree/scripts/composite/BehaviourTreeSequence.cs" type="Script" id=1]
 [ext_resource path="res://addons/behaviour-tree/scripts/task/query/BehaviourTreeQueryInputAction.cs" type="Script" id=2]
 [ext_resource path="res://addons/behaviour-tree/scripts/task/action/BehaviourTreeLoadAction.cs" type="Script" id=3]
 [ext_resource path="res://addons/behaviour-tree/scripts/decorator/BehaviourTreeCheckpoint.cs" type="Script" id=4]
 [ext_resource path="res://addons/behaviour-tree/scripts/decorator/BehaviourTreeInverter.cs" type="Script" id=5]
-[ext_resource path="res://addons/behaviour-tree/prefabs/PeriodicDebugPrint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Modules/player/bt-branches/PerformMovement.cs" type="Script" id=7]
+[ext_resource path="res://addons/behaviour-tree/scripts/task/action/BehaviourTreeLoadFloat.cs" type="Script" id=8]
+[ext_resource path="res://addons/behaviour-tree/scripts/decorator/BehaviourTreeSucceeder.cs" type="Script" id=9]
+[ext_resource path="res://Modules/player/bt-branches/PerformJump.cs" type="Script" id=10]
+[ext_resource path="res://addons/behaviour-tree/scripts/task/action/BehaviourTreeAnimTreeStateMachineTravel.cs" type="Script" id=11]
 
 [node name="State-Walking" type="Node"]
 script = ExtResource( 4 )
@@ -13,12 +17,16 @@ script = ExtResource( 4 )
 [node name="BT_Sequence" type="Node" parent="."]
 script = ExtResource( 1 )
 
-[node name="BT_Inverter" type="Node" parent="BT_Sequence"]
+[node name="Invert-IsCrouching" type="Node" parent="BT_Sequence"]
 script = ExtResource( 5 )
 
-[node name="IsCrouching" type="Node" parent="BT_Sequence/BT_Inverter"]
+[node name="IsCrouching" type="Node" parent="BT_Sequence/Invert-IsCrouching"]
 script = ExtResource( 2 )
 actionName = "crouch"
+
+[node name="AnimTree-TravelState" type="Node" parent="BT_Sequence"]
+script = ExtResource( 11 )
+newStateName = "StateWalk"
 
 [node name="LoadMoveVector" type="Node" parent="BT_Sequence"]
 script = ExtResource( 3 )
@@ -27,4 +35,54 @@ activationActionTrigger = 0
 actionName = "move_left;move_right;move_back;move_forwards"
 saveName = "move_vector"
 
-[node name="PeriodicDebugPrint" parent="BT_Sequence" instance=ExtResource( 6 )]
+[node name="Succeed-LoadValues" type="Node" parent="BT_Sequence"]
+script = ExtResource( 9 )
+
+[node name="LoadValues" type="Node" parent="BT_Sequence/Succeed-LoadValues"]
+script = ExtResource( 1 )
+
+[node name="LoadWalkingValues" type="Node" parent="BT_Sequence/Succeed-LoadValues/LoadValues"]
+script = ExtResource( 1 )
+
+[node name="LoadWalkSpeed" type="Node" parent="BT_Sequence/Succeed-LoadValues/LoadValues/LoadWalkingValues"]
+script = ExtResource( 8 )
+value = 2.0
+saveName = "move_speed"
+
+[node name="LoadJumpForce" type="Node" parent="BT_Sequence/Succeed-LoadValues/LoadValues/LoadWalkingValues"]
+script = ExtResource( 8 )
+value = 5.0
+saveName = "jump_force"
+
+[node name="IsSprinting" type="Node" parent="BT_Sequence/Succeed-LoadValues/LoadValues"]
+script = ExtResource( 2 )
+actionName = "sprint"
+
+[node name="LoadSprintingValues" type="Node" parent="BT_Sequence/Succeed-LoadValues/LoadValues"]
+script = ExtResource( 1 )
+
+[node name="LoadSprintSpeed" type="Node" parent="BT_Sequence/Succeed-LoadValues/LoadValues/LoadSprintingValues"]
+script = ExtResource( 8 )
+value = 6.0
+saveName = "move_speed"
+
+[node name="LoadSprintingJumpForce" type="Node" parent="BT_Sequence/Succeed-LoadValues/LoadValues/LoadSprintingValues"]
+script = ExtResource( 8 )
+value = 2.0
+saveName = "jump_force"
+
+[node name="PerformMovement" type="Node" parent="BT_Sequence"]
+script = ExtResource( 7 )
+
+[node name="TryJump" type="Node" parent="BT_Sequence"]
+script = ExtResource( 9 )
+
+[node name="BT_Sequence" type="Node" parent="BT_Sequence/TryJump"]
+script = ExtResource( 1 )
+
+[node name="BT_QueryInputAction" type="Node" parent="BT_Sequence/TryJump/BT_Sequence"]
+script = ExtResource( 2 )
+actionName = "jump"
+
+[node name="PerformJump" type="Node" parent="BT_Sequence/TryJump/BT_Sequence"]
+script = ExtResource( 10 )

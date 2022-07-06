@@ -36,10 +36,30 @@ public class BTPlugin : EditorPlugin {
         new Entry("BT_Task", "res://addons/behaviour-tree/scripts/task/BehaviourTreeTask.cs", "bt-task.svg"),
         new Entry("BT_Action", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreeAction.cs", "bt-action.svg"),
         new Entry("BT_Query", "res://addons/behaviour-tree/scripts/task/query/BehaviourTreeQuery.cs", "bt-query.svg"),
-        // Specific Tasks
+        // Specific Actions
         new Entry("BT_LoadInputAction", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreeLoadAction.cs", "bt-action.svg"),
-        new Entry("BT_QueryInputAction", "res://addons/behaviour-tree/scripts/task/query/BehaviourTreeQueryInputAction.cs", "bt-query.svg"),
         new Entry("BT_DebugPrint", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreePrintDebugState.cs", "bt-action.svg"),
+        // -    Load Actions
+        new Entry("BT_LoadNode", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreeLoadNode.cs", "bt-action.svg"),
+        new Entry("BT_LoadFloat", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreeLoadFloat.cs", "bt-action.svg"),
+        new Entry("BT_LoadVec3", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreeLoadVec3.cs", "bt-action.svg"),
+        new Entry("BT_LoadVec2", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreeLoadVec2.cs", "bt-action.svg"),
+        new Entry("BT_LoadBool", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreeLoadBool.cs", "bt-action.svg"),
+        new Entry("BT_LoadInt", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreeLoadInt.cs", "bt-action.svg"),
+        //  -    Animation Actions
+        new Entry("BT_PlayAnimation", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreePlayAnimation.cs", "bt-action.svg"),
+        new Entry("BT_AnimTree_SetParamFloat", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreeAnimTreeParamFloat.cs", "bt-action.svg"),
+        new Entry("BT_AnimTree_StateMachineTravel", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreeAnimTreeStateMachineTravel.cs", "bt-action.svg"),
+        // Specific Queries
+        new Entry("BT_QueryInputAction", "res://addons/behaviour-tree/scripts/task/query/BehaviourTreeQueryInputAction.cs", "bt-query.svg"),
+        // Logic Gate Compositors
+        // res://addons/behaviour-tree/scripts/composite/logic/BehaviourTreeLogic_AND.cs
+        new Entry("BT_Logic_AND", "res://addons/behaviour-tree/scripts/composite/logic/BehaviourTreeLogic_AND.cs", "bt-logic-and.svg"),
+        new Entry("BT_Logic_OR", "res://addons/behaviour-tree/scripts/composite/logic/BehaviourTreeLogic_OR.cs", "bt-logic-or.svg"),
+        new Entry("BT_Logic_NAND", "res://addons/behaviour-tree/scripts/composite/logic/BehaviourTreeLogic_NAND.cs", "bt-logic-nand.svg"),
+        new Entry("BT_Logic_NOR", "res://addons/behaviour-tree/scripts/composite/logic/BehaviourTreeLogic_NOR.cs", "bt-logic-nor.svg"),
+        new Entry("BT_Logic_XOR", "res://addons/behaviour-tree/scripts/composite/logic/BehaviourTreeLogic_XOR.cs", "bt-logic-xor.svg"),
+        new Entry("BT_Logic_XNOR", "res://addons/behaviour-tree/scripts/composite/logic/BehaviourTreeLogic_XNOR.cs", "bt-logic-xnor.svg"),
     };
 
     public override void _EnterTree() {

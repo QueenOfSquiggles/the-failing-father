@@ -16,78 +16,58 @@ public class PlayerController : RigidBody
 
 
 
-    private Camera camera;
-    private Spatial cameraRoot;
-    private Spatial cameraRootX;
-    private Vector3 targetMovement = new Vector3();
-
-    private RayCast groundCheck;
+    public Camera camera;
+    public Spatial cameraRoot;
+    public Spatial cameraRootX;
+    public Vector3 targetMovement = new Vector3();
+    public RayCast groundCheck;
+    public RayCast headCheck;
 
     public override void _Ready() {
-        camera = GetNode<Camera>("CameraRoot/CamX/Camera");
-        cameraRoot = GetNode<Spatial>("CameraRoot");
-        cameraRootX = GetNode<Spatial>("CameraRoot/CamX");
+        camera = GetNode<Camera>("CameraRigOffset/CameraRoot/CamX/Camera");
+        cameraRoot = GetNode<Spatial>("CameraRigOffset/CameraRoot");
+        cameraRootX = GetNode<Spatial>("CameraRigOffset/CameraRoot/CamX");
         groundCheck = GetNode<RayCast>("GroundCast");
-        //Input.MouseMode = Input.MouseModeEnum.Captured;
-        GD.Print("Testing print statements");
-    }
-
-    private float debugTimer = 0f;
-    const float DEBUG_CHECK_RATE = 1.0f;
-    public override void _Process(float delta) {
-        debugTimer += delta;
-        if(debugTimer > DEBUG_CHECK_RATE){
-            debugTimer = 0f; // reset
-            // // perform debug checks
-            // GD.Print("Performing debugging checks!");
-            // // check for stuck in position
-            // if(targetMovement.Length() > 0.1f && LinearVelocity.Length() < 0.1f){
-            //     // trying to move but not actual movement bug
-            //     Input.MouseMode = (Input.MouseModeEnum.Visible); // unlock mouse. Doesn't get unlocked by default!
-            //     GD.PrintErr("Player is likely stuck!"); // breakpoint with print so we can check the data in Engine
-            // }
-
-            // // TODO find more bugs with this method
-        }
-
-        ProcessInput();
+        headCheck = GetNode<RayCast>("CameraRigOffset/HeadCast");
     }
 
 
 
     public override void _IntegrateForces(PhysicsDirectBodyState state) {
         // alter existing vector to lean towards desired vector
+        // this can't happen in the behaviour tree because it has to happen in the IntregrateForces method.
+        // so we use targetMovement as a proxy for the velocity values. Packing the jump data in as well.
         if (targetMovement.LengthSquared() > 0.1f){
             var xyAxis = new Vector3(targetMovement.x, LinearVelocity.y, targetMovement.z);
             var dotClamped = Mathf.Clamp(LinearVelocity.Dot(xyAxis) * 0.5f + 0.5f, 0.0f, 1.0f); // Clamping shouldn't be required, but just in case
             var lerpStrength = Mathf.Lerp(deacceleration, acceleration, dotClamped); // lerp between acceleration and deacceleration
             LinearVelocity = LinearVelocity.LinearInterpolate(xyAxis, lerpStrength); // lerp velocity using determined value
 
-            if (targetMovement.y > 0.0f){
+            if (targetMovement.y > 0.0f && LinearVelocity.y <= 0.0f){
                 state.ApplyCentralImpulse(new Vector3(0, targetMovement.y, 0)); // impulse jumps
             }
         }
     }
 
-    private void ProcessInput() {
-        // Convert the input keys into a desired physical vector (dir + mag)
-        targetMovement = new Vector3();
-        var input_dir = Input.GetVector("move_left", "move_right", "move_back", "move_forwards", 0.1f);
-        var isSprinting = Input.IsActionPressed("sprint");
-        var cam_xform = camera.GlobalTransform;
-        targetMovement += -cam_xform.basis.z * input_dir.y;
-        targetMovement += cam_xform.basis.x * input_dir.x;
-        targetMovement.y = 0f;
-        var speed = isSprinting? moveVelocity * sprintVelocityScale : moveVelocity;
-        targetMovement = targetMovement.Normalized() * speed;
-        if (Input.IsActionPressed("jump") && groundCheck.IsColliding() && targetMovement.y <= 0.0f){
-            var jumpAmount = isSprinting ? jumpForce * sprintJumpForceScale : jumpForce; // fuck them kids >:D
-            var up_jump = Vector3.Up * jumpAmount;
-            var normal_jump = groundCheck.GetCollisionNormal() * jumpAmount;
-            targetMovement += normal_jump * jumpGroundNormalContribution;
-            targetMovement += up_jump * (1.0f - jumpGroundNormalContribution);
-        }
-    }
+    // private void ProcessInput() {
+    //     // Convert the input keys into a desired physical vector (dir + mag)
+    //     targetMovement = new Vector3();
+    //     var input_dir = Input.GetVector("move_left", "move_right", "move_back", "move_forwards", 0.1f);
+    //     var isSprinting = Input.IsActionPressed("sprint");
+    //     var cam_xform = camera.GlobalTransform;
+    //     targetMovement += -cam_xform.basis.z * input_dir.y;
+    //     targetMovement += cam_xform.basis.x * input_dir.x;
+    //     targetMovement.y = 0f;
+    //     var speed = isSprinting? moveVelocity * sprintVelocityScale : moveVelocity;
+    //     targetMovement = targetMovement.Normalized() * speed;
+    //     if (Input.IsActionPressed("jump") && groundCheck.IsColliding() && targetMovement.y <= 0.0f){
+    //         var jumpAmount = isSprinting ? jumpForce * sprintJumpForceScale : jumpForce; // fuck them kids >:D
+    //         var up_jump = Vector3.Up * jumpAmount;
+    //         var normal_jump = groundCheck.GetCollisionNormal() * jumpAmount;
+    //         targetMovement += normal_jump * jumpGroundNormalContribution;
+    //         targetMovement += up_jump * (1.0f - jumpGroundNormalContribution);
+    //     }
+    // }
 
     public override void _Input(InputEvent _event) {
         if (_event.IsActionPressed("ui_cancel")){
