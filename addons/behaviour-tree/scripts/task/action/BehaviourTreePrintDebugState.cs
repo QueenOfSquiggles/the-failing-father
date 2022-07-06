@@ -12,10 +12,12 @@ public class BehaviourTreePrintDebugState : BehaviourTreeAction {
 
     private const int FLAGS_ALL = 31;
     // hint keys : 1 | 2 | 4 | 8
+    [Export] public string additionalMessage = "";
     [Export(PropertyHint.Flags, "Root Name,Checkpoint Name,Blackboard Contents")] public int flags = FLAGS_ALL;
 
     public override TickResult Tick(BehaviourTreeRoot root, Dictionary<string, object> blackboard, float deltaTime){
         string msg = "<BT DEBUG>";
+        if (!additionalMessage.Empty()) msg += "\n\tMSG: " + additionalMessage;
         if (IsFlag(FLAG_PRINT_TREE_ROOT_NAME)) msg += $"\n\tROOT: '{ root.Name }'";
         if (IsFlag(FLAG_PRINT_TREE_CHECKPOINT)) msg += $"\n\tCHECKPOINT: '{ ((root.checkpoint == null)? "null" : root.checkpoint.Name )}'";
         if (IsFlag(FLAG_PRINT_BLACKBOARD_CONTENTS)){
@@ -33,7 +35,6 @@ public class BehaviourTreePrintDebugState : BehaviourTreeAction {
             }
         } 
         
-
         msg += "\n</BT DEBUG>";
         GD.Print(msg);
         return TickResult.SUCCESS;

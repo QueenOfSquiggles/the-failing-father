@@ -24,6 +24,13 @@ script = ExtResource( 5 )
 script = ExtResource( 2 )
 actionName = "crouch"
 
+[node name="Invert-IsAiming" type="Node" parent="BT_Sequence"]
+script = ExtResource( 5 )
+
+[node name="IsAiming" type="Node" parent="BT_Sequence/Invert-IsAiming"]
+script = ExtResource( 2 )
+actionName = "aim"
+
 [node name="AnimTree-TravelState" type="Node" parent="BT_Sequence"]
 script = ExtResource( 11 )
 newStateName = "StateWalk"

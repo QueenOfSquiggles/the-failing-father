@@ -62,36 +62,12 @@ tracks/2/keys = {
 "values": [ Vector3( 0, 0.598529, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("CameraRigOffset:rotation_degrees")
+tracks/3/path = NodePath("CameraRigOffset/HeadCast:cast_to")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("CameraRigOffset/CameraRoot/CamX:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("CameraRigOffset/HeadCast:cast_to")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -206,6 +182,7 @@ tracks/3/keys = {
 animation = "RESET"
 
 [sub_resource type="AnimationNodeStateMachine" id=54]
+graph_offset = Vector2( -26, 0 )
 
 [sub_resource type="AnimationNodeStateMachine" id=34]
 
@@ -220,8 +197,10 @@ animation = "start_crouch"
 [sub_resource type="AnimationNodeStateMachineTransition" id=43]
 switch_mode = 2
 auto_advance = true
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=44]
+xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=48]
 switch_mode = 2
@@ -247,12 +226,12 @@ states/StateCrouch/position = Vector2( 364.4, 210.6 )
 states/StateWalk/node = SubResource( 47 )
 states/StateWalk/position = Vector2( -2.60001, 4.8 )
 states/end_crouch/node = SubResource( 40 )
-states/end_crouch/position = Vector2( 143.4, 147.12 )
+states/end_crouch/position = Vector2( 71.4, 163.92 )
 states/start_crouch/node = SubResource( 41 )
-states/start_crouch/position = Vector2( 182.6, 77.648 )
+states/start_crouch/position = Vector2( 261, 52.848 )
 transitions = [ "start_crouch", "StateCrouch", SubResource( 43 ), "StateCrouch", "end_crouch", SubResource( 44 ), "RESET", "StateWalk", SubResource( 48 ), "end_crouch", "StateWalk", SubResource( 51 ), "StateWalk", "start_crouch", SubResource( 52 ), "StateWalk", "StateAim", SubResource( 55 ), "StateAim", "StateWalk", SubResource( 56 ) ]
 start_node = "RESET"
-graph_offset = Vector2( -192, -13 )
+graph_offset = Vector2( -202, -80 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=12]
 
@@ -294,7 +273,6 @@ __meta__ = {
 }
 
 [node name="CamX" type="Spatial" parent="CameraRigOffset/CameraRoot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 __meta__ = {
 "_editor_description_": "Handles Camera X rotation"
 }
@@ -308,7 +286,7 @@ __meta__ = {
 
 [node name="HeadCast" type="RayCast" parent="CameraRigOffset"]
 enabled = true
-cast_to = Vector3( 0, 0.3, 0 )
+cast_to = Vector3( 0, 0.381, 0 )
 debug_shape_custom_color = Color( 0.0313726, 0, 1, 1 )
 
 [node name="CollisionBottom" type="CollisionShape" parent="."]

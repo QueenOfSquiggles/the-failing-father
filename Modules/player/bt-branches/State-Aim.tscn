@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://addons/behaviour-tree/scripts/composite/BehaviourTreeSequence.cs" type="Script" id=1]
-[ext_resource path="res://addons/behaviour-tree/prefabs/PeriodicDebugPrint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/behaviour-tree/scripts/task/action/BehaviourTreeAnimTreeStateMachineTravel.cs" type="Script" id=2]
 [ext_resource path="res://addons/behaviour-tree/scripts/decorator/BehaviourTreeSucceeder.cs" type="Script" id=3]
 [ext_resource path="res://addons/behaviour-tree/scripts/decorator/BehaviourTreeCheckpoint.cs" type="Script" id=4]
+[ext_resource path="res://Modules/player/bt-branches/PerformMovement.cs" type="Script" id=5]
 [ext_resource path="res://addons/behaviour-tree/scripts/task/query/BehaviourTreeQueryInputAction.cs" type="Script" id=6]
+[ext_resource path="res://addons/behaviour-tree/scripts/task/action/BehaviourTreeLoadFloat.cs" type="Script" id=7]
+[ext_resource path="res://addons/behaviour-tree/scripts/task/action/BehaviourTreePrintDebugState.cs" type="Script" id=8]
 
 [node name="State-Aim" type="Node"]
 script = ExtResource( 4 )
@@ -20,7 +23,9 @@ actionName = "aim"
 script = ExtResource( 6 )
 actionName = "aim"
 
-[node name="Action-MoveAim" type="Node" parent="BT_Sequence"]
+[node name="AnimTree-SetState" type="Node" parent="BT_Sequence"]
+script = ExtResource( 2 )
+newStateName = "StateAim"
 
 [node name="ShootSubroutine" type="Node" parent="BT_Sequence"]
 script = ExtResource( 3 )
@@ -37,7 +42,16 @@ __meta__ = {
 "_editor_description_": "thinking maybe 'primary_fire' is good because it allows for adding a secondary fire without looking clunky"
 }
 actionName = "primary_fire"
+actionTrigger = 2
 
-[node name="Action-PerformShoot" type="Node" parent="BT_Sequence/ShootSubroutine/BT_Sequence"]
+[node name="BT_DebugPrint" type="Node" parent="BT_Sequence/ShootSubroutine/BT_Sequence"]
+script = ExtResource( 8 )
+additionalMessage = "SHOOT"
+flags = 0
 
-[node name="PeriodicDebugPrint" parent="BT_Sequence" instance=ExtResource( 2 )]
+[node name="SetMoveSpeedZero" type="Node" parent="BT_Sequence"]
+script = ExtResource( 7 )
+saveName = "move_speed"
+
+[node name="PerformMovement" type="Node" parent="BT_Sequence"]
+script = ExtResource( 5 )
