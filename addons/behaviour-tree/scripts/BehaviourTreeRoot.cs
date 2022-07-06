@@ -17,7 +17,7 @@ public class BehaviourTreeRoot : BehaviourTreeNode
     public Random random = new Random();
 
     private Dictionary<string, object> blackboard = new Dictionary<string, object>();
-    private BehaviourTreeNode checkpoint = null;
+    public BehaviourTreeNode checkpoint = null;
     private int tickCount = 0;
     private float timer = 0f;
 

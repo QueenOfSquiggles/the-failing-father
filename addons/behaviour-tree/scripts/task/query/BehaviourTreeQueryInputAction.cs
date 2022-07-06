@@ -10,24 +10,22 @@ public class BehaviourTreeQueryInputAction : BehaviourTreeQuery {
     }
 
     [Export] public string actionName;
-    [Export] public string saveName;
     [Export] public ActionTrigger actionTrigger = ActionTrigger.PRESSED;
 
     public override TickResult Tick(BehaviourTreeRoot root, Dictionary<string, object> blackboard, float deltaTime){
-        blackboard.Remove(saveName);
         switch(actionTrigger){
             case ActionTrigger.PRESSED:
-                blackboard[saveName] = Input.IsActionPressed(actionName);
-                return TickResult.SUCCESS;
+                return (Input.IsActionPressed(actionName)) ? TickResult.SUCCESS : TickResult.FAILURE;
+
             case ActionTrigger.RELEASED:
-                blackboard[saveName] = !Input.IsActionPressed(actionName);
-                return TickResult.SUCCESS;
+                return (!Input.IsActionPressed(actionName)) ? TickResult.SUCCESS : TickResult.FAILURE;
+
             case ActionTrigger.JUST_PRESSED:
-                blackboard[saveName] = Input.IsActionJustPressed(actionName);
-                return TickResult.SUCCESS;
+                return (Input.IsActionJustPressed(actionName)) ? TickResult.SUCCESS : TickResult.FAILURE;
+
             case ActionTrigger.JUST_RELEASED:
-                blackboard[saveName] = Input.IsActionJustReleased(actionName);
-                return TickResult.SUCCESS;                
+                return (Input.IsActionJustReleased(actionName)) ? TickResult.SUCCESS : TickResult.FAILURE;
+
             default:
                 return TickResult.FAILURE;
         }

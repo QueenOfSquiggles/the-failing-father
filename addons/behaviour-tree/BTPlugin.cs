@@ -22,9 +22,9 @@ public class BTPlugin : EditorPlugin {
         // Root
         new Entry("BT_Root", "res://addons/behaviour-tree/scripts/BehaviourTreeRoot.cs", "bt-root.svg"),
         // Compositors
-        new Entry("BT_Fallback", "res://addons/behaviour-tree/scripts/composite/BehaviourTreeFallback.cs", "bt-composite.svg"),
+        new Entry("BT_Fallback", "res://addons/behaviour-tree/scripts/composite/BehaviourTreeFallback.cs", "bt-fallback.svg"),
         new Entry("BT_RandomSequence", "res://addons/behaviour-tree/scripts/composite/BehaviourTreeRandomSequence.cs", "bt-composite.svg"),
-        new Entry("BT_Sequence", "res://addons/behaviour-tree/scripts/composite/BehaviourTreeSequence.cs", "bt-composite.svg"),
+        new Entry("BT_Sequence", "res://addons/behaviour-tree/scripts/composite/BehaviourTreeSequence.cs", "bt-sequence.svg"),
         // Decorators
         new Entry("BT_Inverter", "res://addons/behaviour-tree/scripts/decorator/BehaviourTreeInverter.cs", "bt-decorator.svg"),
         new Entry("BT_Limiter", "res://addons/behaviour-tree/scripts/decorator/BehaviourTreeLimiter.cs", "bt-decorator.svg"),
@@ -39,6 +39,7 @@ public class BTPlugin : EditorPlugin {
         // Specific Tasks
         new Entry("BT_LoadInputAction", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreeLoadAction.cs", "bt-action.svg"),
         new Entry("BT_QueryInputAction", "res://addons/behaviour-tree/scripts/task/query/BehaviourTreeQueryInputAction.cs", "bt-query.svg"),
+        new Entry("BT_DebugPrint", "res://addons/behaviour-tree/scripts/task/action/BehaviourTreePrintDebugState.cs", "bt-action.svg"),
     };
 
     public override void _EnterTree() {

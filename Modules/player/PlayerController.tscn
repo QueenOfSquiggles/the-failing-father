@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Modules/player/PlayerController.cs" type="Script" id=1]
 [ext_resource path="res://addons/behaviour-tree/scripts/composite/BehaviourTreeSequence.cs" type="Script" id=2]
 [ext_resource path="res://addons/behaviour-tree/scripts/BehaviourTreeRoot.cs" type="Script" id=3]
 [ext_resource path="res://addons/behaviour-tree/scripts/decorator/BehaviourTreeOnce.cs" type="Script" id=4]
-[ext_resource path="res://addons/behaviour-tree/scripts/task/action/BehaviourTreeAction.cs" type="Script" id=5]
+[ext_resource path="res://addons/behaviour-tree/scripts/task/action/BehaviourTreeLoadAction.cs" type="Script" id=5]
 [ext_resource path="res://Modules/player/bt-branches/State-Walking.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Modules/player/bt-branches/State-Crouch.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Modules/player/bt-branches/State-Aim.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/behaviour-tree/scripts/composite/BehaviourTreeFallback.cs" type="Script" id=9]
 
 [sub_resource type="SphereShape" id=3]
 radius = 0.375
@@ -70,7 +71,7 @@ mesh = SubResource( 2 )
 
 [node name="BT_Root" type="Node" parent="."]
 script = ExtResource( 3 )
-maxTicksBeforeReevaluation = 5
+maxTimeBeforeReevaluation = 1.0
 
 [node name="BT_Sequence" type="Node" parent="BT_Root"]
 script = ExtResource( 2 )
@@ -81,11 +82,16 @@ script = ExtResource( 4 )
 [node name="BT_Sequence" type="Node" parent="BT_Root/BT_Sequence/Once-Initialization"]
 script = ExtResource( 2 )
 
-[node name="BT_Action" type="Node" parent="BT_Root/BT_Sequence/Once-Initialization/BT_Sequence"]
+[node name="PLACEHOLDER" type="Node" parent="BT_Root/BT_Sequence/Once-Initialization/BT_Sequence"]
 script = ExtResource( 5 )
+actionName = "ui_cancel"
+saveName = "input_once"
 
-[node name="State-Aim" parent="BT_Root/BT_Sequence" instance=ExtResource( 8 )]
+[node name="States-Fallback" type="Node" parent="BT_Root/BT_Sequence"]
+script = ExtResource( 9 )
 
-[node name="State-Crouch" parent="BT_Root/BT_Sequence" instance=ExtResource( 7 )]
+[node name="State-Aim" parent="BT_Root/BT_Sequence/States-Fallback" instance=ExtResource( 8 )]
 
-[node name="State-Walking" parent="BT_Root/BT_Sequence" instance=ExtResource( 6 )]
+[node name="State-Crouch" parent="BT_Root/BT_Sequence/States-Fallback" instance=ExtResource( 7 )]
+
+[node name="State-Walking" parent="BT_Root/BT_Sequence/States-Fallback" instance=ExtResource( 6 )]
