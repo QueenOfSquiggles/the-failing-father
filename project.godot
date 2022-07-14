@@ -212,7 +212,7 @@ config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/behaviour-tree/plugin.cfg", "res://addons/godot-command-palette/plugin.cfg", "res://addons/qodot/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/behaviour-tree/plugin.cfg", "res://addons/qodot/plugin.cfg" )
 
 [input]
 
@@ -264,8 +264,8 @@ crouch={
 
 [mono]
 
-runtime/unhandled_exception_policy=1
 profiler/enabled=true
+runtime/unhandled_exception_policy=1
 debugger_agent/wait_for_debugger=true
 
 [quick_runner]
