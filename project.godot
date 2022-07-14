@@ -262,6 +262,12 @@ crouch={
  ]
 }
 
+[mono]
+
+runtime/unhandled_exception_policy=1
+profiler/enabled=true
+debugger_agent/wait_for_debugger=true
+
 [quick_runner]
 
 search_term_tolerance=0.5

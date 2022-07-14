@@ -23,7 +23,7 @@ shadow_atlas_size = 128
 unique_name_in_owner = true
 
 [node name="PlayerController" parent="ViewportContainer/Viewport/LevelRoot" instance=ExtResource( 2 )]
-transform = Transform( -0.0463568, 0, -0.998925, 0, 1, 0, 0.998925, 0, -0.0463568, -7.44443, -0.00218523, -1.93982 )
+transform = Transform( -0.938956, 0, -0.344037, 0, 1, 0, 0.344037, 0, -0.938956, -1.76051, 8.54973, -12.0414 )
 continuous_cd = true
 
-[node name="Spatial" parent="ViewportContainer/Viewport/LevelRoot" instance=ExtResource( 1 )]
+[node name="QodotMap" parent="ViewportContainer/Viewport/LevelRoot" instance=ExtResource( 1 )]
