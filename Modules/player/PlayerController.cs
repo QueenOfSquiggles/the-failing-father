@@ -53,13 +53,13 @@ public class PlayerController : RigidBody
     public override void _Input(InputEvent _event) {
         if (_event.IsActionPressed("ui_cancel")){
             // toggle mouse lock
-            if (Input.MouseMode == Input.MouseModeEnum.Captured){
-                Input.MouseMode = Input.MouseModeEnum.Visible;
+            if (Input.GetMouseMode() == Input.MouseMode.Captured){
+                Input.SetMouseMode(Input.MouseMode.Visible);
             }else{
-                Input.MouseMode = Input.MouseModeEnum.Captured;
+                Input.SetMouseMode(Input.MouseMode.Captured);
             }
         }
-        if(_event is InputEventMouseMotion && Input.MouseMode == Input.MouseModeEnum.Captured){
+        if(_event is InputEventMouseMotion && Input.GetMouseMode() == Input.MouseMode.Captured){
             var mouseEvent = _event as InputEventMouseMotion;
             cameraRoot.RotateY(Mathf.Deg2Rad(mouseEvent.Relative.x * mouseSpeed * -1f));
 

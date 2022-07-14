@@ -20,7 +20,6 @@ physics_object_picking = true
 shadow_atlas_size = 128
 
 [node name="LevelRoot" type="Spatial" parent="ViewportContainer/Viewport"]
-unique_name_in_owner = true
 
 [node name="PlayerController" parent="ViewportContainer/Viewport/LevelRoot" instance=ExtResource( 2 )]
 transform = Transform( -0.938956, 0, -0.344037, 0, 1, 0, 0.344037, 0, -0.938956, -1.76051, 8.54973, -12.0414 )

@@ -105,8 +105,10 @@ public class QuickRunner : WindowDialog
                 //  Root -> Header -> Topmost Command (search delimited)
                 item = commandsTree.GetRoot().GetChildren().GetChildren();
             }
-            var id = item.GetButtonId(0, 0);
-            CommandPalettePanel.instance.RunCommand(id);
+            // TODO this doesn't quite work. Not super important for now.
+            //var index = commandsTree.GetPressedButton();
+            //var id = item.
+            //CommandPalettePanel.instance.RunCommand(id);
             this.Hide();
         }
     }
