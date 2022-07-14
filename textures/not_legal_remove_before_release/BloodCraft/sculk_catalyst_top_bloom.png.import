@@ -2,24 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sculk_catalyst_top_bloom.png-03c502dbf9b657cb8ab4c53173f06eeb.stex"
+path.s3tc="res://.import/sculk_catalyst_top_bloom.png-03c502dbf9b657cb8ab4c53173f06eeb.s3tc.stex"
+path.etc2="res://.import/sculk_catalyst_top_bloom.png-03c502dbf9b657cb8ab4c53173f06eeb.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/not_legal_remove_before_release/BloodCraft/sculk_catalyst_top_bloom.png"
-dest_files=[ "res://.import/sculk_catalyst_top_bloom.png-03c502dbf9b657cb8ab4c53173f06eeb.stex" ]
+dest_files=[ "res://.import/sculk_catalyst_top_bloom.png-03c502dbf9b657cb8ab4c53173f06eeb.s3tc.stex", "res://.import/sculk_catalyst_top_bloom.png-03c502dbf9b657cb8ab4c53173f06eeb.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=true
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
@@ -31,5 +33,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

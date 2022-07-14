@@ -2,24 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jigsaw_side.png-f6eb45f1569b47a4a599577864605c20.stex"
+path.s3tc="res://.import/jigsaw_side.png-f6eb45f1569b47a4a599577864605c20.s3tc.stex"
+path.etc2="res://.import/jigsaw_side.png-f6eb45f1569b47a4a599577864605c20.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/not_legal_remove_before_release/BloodCraft/jigsaw_side.png"
-dest_files=[ "res://.import/jigsaw_side.png-f6eb45f1569b47a4a599577864605c20.stex" ]
+dest_files=[ "res://.import/jigsaw_side.png-f6eb45f1569b47a4a599577864605c20.s3tc.stex", "res://.import/jigsaw_side.png-f6eb45f1569b47a4a599577864605c20.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=true
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
@@ -31,5 +33,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

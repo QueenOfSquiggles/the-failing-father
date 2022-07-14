@@ -2,24 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/honeycomb_block.png-6d2b62a3c0d7b320c24b2d09efe15f87.stex"
+path.s3tc="res://.import/honeycomb_block.png-6d2b62a3c0d7b320c24b2d09efe15f87.s3tc.stex"
+path.etc2="res://.import/honeycomb_block.png-6d2b62a3c0d7b320c24b2d09efe15f87.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/not_legal_remove_before_release/BloodCraft/honeycomb_block.png"
-dest_files=[ "res://.import/honeycomb_block.png-6d2b62a3c0d7b320c24b2d09efe15f87.stex" ]
+dest_files=[ "res://.import/honeycomb_block.png-6d2b62a3c0d7b320c24b2d09efe15f87.s3tc.stex", "res://.import/honeycomb_block.png-6d2b62a3c0d7b320c24b2d09efe15f87.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=true
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
@@ -31,5 +33,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

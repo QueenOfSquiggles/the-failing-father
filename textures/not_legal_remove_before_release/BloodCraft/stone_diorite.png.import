@@ -2,24 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stone_diorite.png-8bea105fb746ee01a79091b3e7e7e972.stex"
+path.s3tc="res://.import/stone_diorite.png-8bea105fb746ee01a79091b3e7e7e972.s3tc.stex"
+path.etc2="res://.import/stone_diorite.png-8bea105fb746ee01a79091b3e7e7e972.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/not_legal_remove_before_release/BloodCraft/stone_diorite.png"
-dest_files=[ "res://.import/stone_diorite.png-8bea105fb746ee01a79091b3e7e7e972.stex" ]
+dest_files=[ "res://.import/stone_diorite.png-8bea105fb746ee01a79091b3e7e7e972.s3tc.stex", "res://.import/stone_diorite.png-8bea105fb746ee01a79091b3e7e7e972.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=true
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
@@ -31,5 +33,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

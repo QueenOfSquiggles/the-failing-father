@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Modules/player/PlayerController.cs" type="Script" id=1]
 [ext_resource path="res://addons/behaviour-tree/scripts/composite/BehaviourTreeSequence.cs" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Modules/player/bt-branches/State-Crouch.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Modules/player/bt-branches/State-Aim.tscn" type="PackedScene" id=8]
 [ext_resource path="res://addons/behaviour-tree/scripts/composite/BehaviourTreeFallback.cs" type="Script" id=9]
+[ext_resource path="res://Modules/player/StepCheck.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CapsuleMesh" id=2]
 radius = 0.375
@@ -231,7 +232,7 @@ states/start_crouch/node = SubResource( 41 )
 states/start_crouch/position = Vector2( 261, 52.848 )
 transitions = [ "start_crouch", "StateCrouch", SubResource( 43 ), "StateCrouch", "end_crouch", SubResource( 44 ), "RESET", "StateWalk", SubResource( 48 ), "end_crouch", "StateWalk", SubResource( 51 ), "StateWalk", "start_crouch", SubResource( 52 ), "StateWalk", "StateAim", SubResource( 55 ), "StateAim", "StateWalk", SubResource( 56 ) ]
 start_node = "RESET"
-graph_offset = Vector2( -202, -80 )
+graph_offset = Vector2( -250, -52 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=12]
 
@@ -284,9 +285,14 @@ __meta__ = {
 "_editor_description_": "camera itself should only track Z rotation when applicable"
 }
 
+[node name="RemoteTransform" type="RemoteTransform" parent="CameraRigOffset/CameraRoot"]
+remote_path = NodePath("../../../StepCheck")
+update_position = false
+update_scale = false
+
 [node name="HeadCast" type="RayCast" parent="CameraRigOffset"]
 enabled = true
-cast_to = Vector3( 0, 0.381, 0 )
+cast_to = Vector3( 0, 0.3, 0 )
 debug_shape_custom_color = Color( 0.0313726, 0, 1, 1 )
 
 [node name="CollisionBottom" type="CollisionShape" parent="."]
@@ -307,6 +313,8 @@ enabled = true
 cast_to = Vector3( 0, -0.35, 0 )
 debug_shape_custom_color = Color( 1, 0, 0, 1 )
 
+[node name="StepCheck" parent="." instance=ExtResource( 10 )]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "RESET"
 anims/RESET = SubResource( 7 )
@@ -316,7 +324,6 @@ anims/start_crouch = SubResource( 6 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 11 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 12 )
 parameters/StateAim/playback = SubResource( 57 )
 parameters/StateCrouch/playback = SubResource( 37 )

@@ -6,12 +6,12 @@
 "_tb_textures" "textures/core/nature;textures/not_legal_remove_before_release/BloodCraft"
 // brush 0
 {
-( -64 -64 -16 ) ( -64 -63 -16 ) ( -64 -64 -15 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 -64 -16 ) ( -64 -64 -15 ) ( -63 -64 -16 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 -64 -16 ) ( -63 -64 -16 ) ( -64 -63 -16 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 64 64 16 ) ( 64 65 16 ) ( 65 64 16 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 64 64 16 ) ( 65 64 16 ) ( 64 64 17 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 64 64 16 ) ( 64 64 17 ) ( 64 65 16 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
+( -64 -64 -16 ) ( -64 -63 -16 ) ( -64 -64 -15 ) not_legal_remove_before_release/BloodCraft/black_terracotta 0 0 0 1 1
+( -64 -64 -16 ) ( -64 -64 -15 ) ( -63 -64 -16 ) not_legal_remove_before_release/BloodCraft/black_terracotta 0 0 0 1 1
+( -64 -64 -16 ) ( -63 -64 -16 ) ( -64 -63 -16 ) not_legal_remove_before_release/BloodCraft/black_terracotta 0 0 0 1 1
+( 64 64 16 ) ( 64 65 16 ) ( 65 64 16 ) not_legal_remove_before_release/BloodCraft/black_terracotta 0 0 0 1 1
+( 64 64 16 ) ( 65 64 16 ) ( 64 64 17 ) not_legal_remove_before_release/BloodCraft/black_terracotta 0 0 0 1 1
+( 64 64 16 ) ( 64 64 17 ) ( 64 65 16 ) not_legal_remove_before_release/BloodCraft/black_terracotta 0 0 0 1 1
 }
 // brush 1
 {
@@ -33,21 +33,21 @@
 }
 // brush 3
 {
-( -64 0 16 ) ( -64 1 16 ) ( -64 0 17 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 0 16 ) ( -64 0 17 ) ( -63 0 16 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 0 16 ) ( -63 0 16 ) ( -64 1 16 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -16 64 48 ) ( -16 65 48 ) ( -15 64 48 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -16 64 32 ) ( -15 64 32 ) ( -16 64 33 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -16 64 32 ) ( -16 64 33 ) ( -16 65 32 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
+( -64 0 16 ) ( -64 1 16 ) ( -64 0 17 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( -64 0 16 ) ( -64 0 17 ) ( -63 0 16 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( -64 0 16 ) ( -63 0 16 ) ( -64 1 16 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( -16 64 48 ) ( -16 65 48 ) ( -15 64 48 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( -16 64 32 ) ( -15 64 32 ) ( -16 64 33 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( -16 64 32 ) ( -16 64 33 ) ( -16 65 32 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
 }
 // brush 4
 {
-( -64 -64 16 ) ( -64 -63 16 ) ( -64 -64 17 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 -64 16 ) ( -64 -64 17 ) ( -63 -64 16 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 -64 16 ) ( -63 -64 16 ) ( -64 -63 16 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -16 0 32 ) ( -16 1 32 ) ( -15 0 32 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -16 0 32 ) ( -15 0 32 ) ( -16 0 33 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -16 0 32 ) ( -16 0 33 ) ( -16 1 32 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
+( -64 -64 16 ) ( -64 -63 16 ) ( -64 -64 17 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( -64 -64 16 ) ( -64 -64 17 ) ( -63 -64 16 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( -64 -64 16 ) ( -63 -64 16 ) ( -64 -63 16 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( -16 0 32 ) ( -16 1 32 ) ( -15 0 32 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( -16 0 32 ) ( -15 0 32 ) ( -16 0 33 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( -16 0 32 ) ( -16 0 33 ) ( -16 1 32 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
 }
 // brush 5
 {
@@ -87,39 +87,39 @@
 }
 // brush 9
 {
-( -16 16 48 ) ( -16 17 48 ) ( -16 16 49 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -16 16 48 ) ( -16 16 49 ) ( -15 16 48 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -16 16 48 ) ( -15 16 48 ) ( -16 17 48 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 48 48 64 ) ( 48 49 64 ) ( 49 48 64 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 48 48 64 ) ( 49 48 64 ) ( 48 48 65 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 48 48 64 ) ( 48 48 65 ) ( 48 49 64 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
+( -16 16 48 ) ( -16 17 48 ) ( -16 16 49 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( -16 16 48 ) ( -16 16 49 ) ( -15 16 48 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( -16 16 48 ) ( -15 16 48 ) ( -16 17 48 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( 48 48 64 ) ( 48 49 64 ) ( 49 48 64 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( 48 48 64 ) ( 49 48 64 ) ( 48 48 65 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
+( 48 48 64 ) ( 48 48 65 ) ( 48 49 64 ) not_legal_remove_before_release/BloodCraft/birch_planks 0 0 0 1 1
 }
 // brush 10
 {
-( -240 64 64 ) ( -240 65 64 ) ( -240 64 65 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 64 64 ) ( -64 64 65 ) ( -63 64 64 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 64 64 ) ( -63 64 64 ) ( -64 65 64 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 64 80 80 ) ( 64 81 80 ) ( 65 80 80 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 64 256 80 ) ( 65 256 80 ) ( 64 256 81 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 208 80 80 ) ( 208 80 81 ) ( 208 81 80 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
+( -240 64 64 ) ( -240 65 64 ) ( -240 64 65 ) core/nature/grass_0 0 0 0 1 1
+( -64 64 64 ) ( -64 64 65 ) ( -63 64 64 ) core/nature/grass_0 0 0 0 1 1
+( -64 64 64 ) ( -63 64 64 ) ( -64 65 64 ) core/nature/grass_0 0 0 0 1 1
+( 64 80 80 ) ( 64 81 80 ) ( 65 80 80 ) core/nature/grass_0 0 0 0 1 1
+( 64 256 80 ) ( 65 256 80 ) ( 64 256 81 ) core/nature/grass_0 0 0 0 1 1
+( 208 80 80 ) ( 208 80 81 ) ( 208 81 80 ) core/nature/grass_0 0 0 0 1 1
 }
 // brush 11
 {
-( 64 -80 64 ) ( 64 -79 64 ) ( 64 -80 65 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 64 -288 64 ) ( 64 -288 65 ) ( 65 -288 64 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 64 -80 64 ) ( 65 -80 64 ) ( 64 -79 64 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 208 64 80 ) ( 208 65 80 ) ( 209 64 80 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 208 64 80 ) ( 209 64 80 ) ( 208 64 81 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 208 64 80 ) ( 208 64 81 ) ( 208 65 80 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
+( 64 -80 64 ) ( 64 -79 64 ) ( 64 -80 65 ) core/nature/grass_0 0 0 0 1 1
+( 64 -288 64 ) ( 64 -288 65 ) ( 65 -288 64 ) core/nature/grass_0 0 0 0 1 1
+( 64 -80 64 ) ( 65 -80 64 ) ( 64 -79 64 ) core/nature/grass_0 0 0 0 1 1
+( 208 64 80 ) ( 208 65 80 ) ( 209 64 80 ) core/nature/grass_0 0 0 0 1 1
+( 208 64 80 ) ( 209 64 80 ) ( 208 64 81 ) core/nature/grass_0 0 0 0 1 1
+( 208 64 80 ) ( 208 64 81 ) ( 208 65 80 ) core/nature/grass_0 0 0 0 1 1
 }
 // brush 12
 {
-( -240 -288 64 ) ( -240 -287 64 ) ( -240 -288 65 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -240 -288 64 ) ( -240 -288 65 ) ( -239 -288 64 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -240 -288 64 ) ( -239 -288 64 ) ( -240 -287 64 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 64 80 ) ( -64 65 80 ) ( -63 64 80 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 64 80 ) ( -63 64 80 ) ( -64 64 81 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 64 80 ) ( -64 64 81 ) ( -64 65 80 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
+( -240 -288 64 ) ( -240 -287 64 ) ( -240 -288 65 ) core/nature/grass_0 0 0 0 1 1
+( -240 -288 64 ) ( -240 -288 65 ) ( -239 -288 64 ) core/nature/grass_0 0 0 0 1 1
+( -240 -288 64 ) ( -239 -288 64 ) ( -240 -287 64 ) core/nature/grass_0 0 0 0 1 1
+( -64 64 80 ) ( -64 65 80 ) ( -63 64 80 ) core/nature/grass_0 0 0 0 1 1
+( -64 64 80 ) ( -63 64 80 ) ( -64 64 81 ) core/nature/grass_0 0 0 0 1 1
+( -64 64 80 ) ( -64 64 81 ) ( -64 65 80 ) core/nature/grass_0 0 0 0 1 1
 }
 // brush 13
 {
@@ -213,12 +213,12 @@
 }
 // brush 23
 {
-( -64 -288 64 ) ( -64 -287 64 ) ( -64 -288 65 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 -288 64 ) ( -64 -288 65 ) ( -63 -288 64 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( -64 -288 64 ) ( -63 -288 64 ) ( -64 -287 64 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 64 -80 80 ) ( 64 -79 80 ) ( 65 -80 80 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 64 -176 80 ) ( 65 -176 80 ) ( 64 -176 81 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
-( 64 -80 80 ) ( 64 -80 81 ) ( 64 -79 80 ) not_legal_remove_before_release/BloodCraft/cobblestone 0 0 0 1 1
+( -64 -288 64 ) ( -64 -287 64 ) ( -64 -288 65 ) core/nature/grass_0 0 0 0 1 1
+( -64 -288 64 ) ( -64 -288 65 ) ( -63 -288 64 ) core/nature/grass_0 0 0 0 1 1
+( -64 -288 64 ) ( -63 -288 64 ) ( -64 -287 64 ) core/nature/grass_0 0 0 0 1 1
+( 64 -80 80 ) ( 64 -79 80 ) ( 65 -80 80 ) core/nature/grass_0 0 0 0 1 1
+( 64 -176 80 ) ( 65 -176 80 ) ( 64 -176 81 ) core/nature/grass_0 0 0 0 1 1
+( 64 -80 80 ) ( 64 -80 81 ) ( 64 -79 80 ) core/nature/grass_0 0 0 0 1 1
 }
 // brush 24
 {
